@@ -16,4 +16,4 @@ Just open up to command lines on your pc. On one open the server.sh file. In the
 
  ## Do not run just now I will improve it!
 
-If you won't just use sudo ./server.sh (from the server folder). with th send.c program in the samen folder. I also wont to add that it realy echos the output of the pogramm and not only the send message.
+If you won't just use sudo ./server.sh (from the server folder). with th send.c program in the samen folder. I also wont to add that it realy echos the output of the pogramm and not only the send message. It sould work just like ssh or a remote shell.
