@@ -94,8 +94,8 @@ We see the lengths: 72 = H, 111 = o, 116 = t, 100 = d, 111 = o, 103 = g.
 
 This is how you can decode these messages.
 
-## HELP
-If you are running Raspberry Pi os you will have to install `sudo apt update && sudo apt install gawk` for the server.sh pogramm.
+## 
+If you are running RaspberryPi os you will have to install `sudo apt update && sudo apt install gawk` for the server.sh pogramm.
 
 ## Things that don't work
 no encryption. Also there is no way to know what the output of your command was. It should be more of a shell.
