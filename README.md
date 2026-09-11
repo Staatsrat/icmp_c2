@@ -27,7 +27,7 @@ As soon as the program starts you will get a `Message: ` output. Here you have t
 
 If you want to execute a message as a command, write `<command/message>+x` the "+x" instructs the server program to execute the message in a shell. Note that anyone can send ICMP packets and execute commands if this function is enabled in the `server.sh` file.
 
-## Server
+# Server
 
 Then on the receiving device:
 
