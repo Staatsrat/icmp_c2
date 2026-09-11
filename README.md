@@ -8,7 +8,7 @@ A C-based tool for covert data transmission over ICMP packet sizes without using
 
 ## Client
 
-To use it, enter the ip of the device you wont to talk with at the first prompt the pogram gives you. The only valid format is for example 192.168.8.1
+To use it, enter the ip of the device you wont to talk with at the first prompt the pogram gives you. The only valid format is for example "192.168.8.1". After that you will never have to enter the ip again.
 
 #### 1. Compile
 
