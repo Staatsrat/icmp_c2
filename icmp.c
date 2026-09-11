@@ -39,25 +39,26 @@ int sendit(int letter, char *server_ip) {
 
 }
 
+void message(char *server_ip) {
+	char wort[200] = "";
+    	char end[] = "*";
+    	printf("Message: ");
+    	if (fgets(wort, sizeof(wort), stdin) != NULL) {
+       		wort[strcspn(wort, "\n")] = '\0';
+        	size_t free = sizeof(wort) - strlen(wort) - 1;
+        	strncat(wort, end, free);
+        	for (int i = 0; wort[i] != '\0'; i++) {
+            		sendit(wort[i], server_ip);
+            		usleep(100000);
+        	}
+    	}
+}
+
 int main() {
     char server_ip[64];
     printf("Enter the server ip: ");
-    scanf("%63s", &server_ip);
-    int setup() {
-    	char wort[200] = "";
-   	char end[] = "*";
-    	printf("Message: ");
-    	if (fgets(wort, sizeof(wort), stdin) != NULL) {
-		wort[strcspn(wort, "\n")] = '\0';
-		size_t free = sizeof(wort) - strlen(wort) -1;
-		strncat(wort, end, free);
-		for (int i = 0; wort[i] != '\0'; i++) {
-			sendit(wort[i], server_ip);
-        		usleep(100000);
-    	}
-    }
-    return 0;
-    }
-    setup();
+    scanf("%63s", server_ip);
+
+    message(server_ip);
     return 0;
 }
