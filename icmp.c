@@ -52,6 +52,7 @@ void message(char *server_ip) {
             		usleep(100000);
         	}
     	}
+	message(server_ip);
 }
 
 int main() {
@@ -62,3 +63,4 @@ int main() {
     message(server_ip);
     return 0;
 }
+
