@@ -15,11 +15,11 @@ unsigned short checksum(void *b, int len) {
     return ~(sum + (sum >> 16));
 }
 
-int sendit(int letter) {
+int sendit(int letter, char *server_ip) {
     int sock = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
 
     struct sockaddr_in dest = { .sin_family = AF_INET };
-    inet_pton(AF_INET, "<Server_ip>", &dest.sin_addr);
+    inet_pton(AF_INET,server_ip, &dest.sin_addr);
 
     int target_size = letter;
 
@@ -40,19 +40,24 @@ int sendit(int letter) {
 }
 
 int main() {
-    char wort[200] = "";
-    char end[] = "*";
-    printf("Message: ");
-    if (fgets(wort, sizeof(wort), stdin) != NULL) {
-	wort[strcspn(wort, "\n")] = '\0';
-	size_t free = sizeof(wort) - strlen(wort) -1;
-	strncat(wort, end, free);
-	for (int i = 0; wort[i] != '\0'; i++) {
-		sendit(wort[i]);
-        	usleep(100000);
+    char server_ip[64];
+    printf("Enter the server ip: ");
+    scanf("%63s", &server_ip);
+    int setup() {
+    	char wort[200] = "";
+   	char end[] = "*";
+    	printf("Message: ");
+    	if (fgets(wort, sizeof(wort), stdin) != NULL) {
+		wort[strcspn(wort, "\n")] = '\0';
+		size_t free = sizeof(wort) - strlen(wort) -1;
+		strncat(wort, end, free);
+		for (int i = 0; wort[i] != '\0'; i++) {
+			sendit(wort[i], server_ip);
+        		usleep(100000);
     	}
     }
-    main();
+    return 0;
+    }
+    setup();
     return 0;
 }
-
