@@ -42,7 +42,7 @@ int sendit(int letter, char *server_ip) {
 void message(char *server_ip) {
 	char wort[200] = "";
     	char end[] = "*";
-    	printf("Message: ");
+    	printf("user@%s:~$ ", server_ip);
     	if (fgets(wort, sizeof(wort), stdin) != NULL) {
        		wort[strcspn(wort, "\n")] = '\0';
         	size_t free = sizeof(wort) - strlen(wort) - 1;
@@ -54,8 +54,24 @@ void message(char *server_ip) {
     	}
 	message(server_ip);
 }
+void banner(void) {
+    const char *G = "\033[32m";  // grün
+    const char *X = "\033[0m";   // reset
+
+    printf("\n");
+    printf("%s", G);
+    printf(" ██╗ ██████╗███╗   ███╗██████╗ \n");
+    printf(" ██║██╔════╝████╗ ████║██╔══██╗\n");
+    printf(" ██║██║     ██╔████╔██║██████╔╝\n");
+    printf(" ██║██║     ██║╚██╔╝██║██╔═══╝ \n");
+    printf(" ██║╚██████╗██║ ╚═╝ ██║██║     \n");
+    printf(" ╚═╝ ╚═════╝╚═╝     ╚═╝╚═╝     \n");
+    printf("%s", X);
+    printf("\n");
+}
 
 int main() {
+    banner();
     char server_ip[64];
     printf("Enter the server ip: ");
     scanf("%63s", server_ip);
