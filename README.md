@@ -6,7 +6,7 @@
 
 A C-based tool for covert data transmission over ICMP packet sizes without using standard payload.
 
->  **WARNING: **
+>  **WARNING:**
 > This tool has no authentication, no encryption and no IP whitelist. The server executes every received command as root. Anyone who can reach the server over the network can run arbitrary commands on it whether from the same LAN or from anywhere on the internet, if the server is publicly reachable. Only use this in an isolated lab environment.
 
 # Client
