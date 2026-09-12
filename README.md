@@ -1,5 +1,4 @@
 # icmp-communication
-
 ![ICMPC2 Banner](assets/banner.png)
 ---
 ![Demo](assets/demo.gif)
