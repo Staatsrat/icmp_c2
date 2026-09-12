@@ -1,6 +1,7 @@
 # icmp-communication
 
 ![ICMPC2 Banner](assets/banner.png)
+---
 ![Demo](assets/demo.gif)
 
 #### The tool is still work in progress
