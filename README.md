@@ -36,8 +36,6 @@ sudo ./icmp
 
 As soon as the program starts you will get a `Enter the server ip:` Here you have to enter the server IP where the server.sh pogram is running. After that you get `user@<server_ip>:~$` enter the commands. (The user and the ~ are static till now.) The output of every command is printed back to you directly under the prompt.
 
-![Demo](assets/demo.gif)
-
 # Server
 
 Then on the receiving device:
