@@ -11,6 +11,8 @@ A C-based tool for covert data transmission over ICMP packet sizes without using
 
 # Client
 
+![Demo](assets/demo.gif)
+
 #### Download
 ```
 git clone https://github.com/Staatsrat/icmp_c2.git
