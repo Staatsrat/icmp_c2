@@ -1,6 +1,6 @@
 # icmp-communication
 
-![ICMP Covert Channel Demo](demo.gif)
+![ICMPC2 Banner](assets/banner.png)
 
 #### The tool is still work in progress
 
