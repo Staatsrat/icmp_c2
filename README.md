@@ -11,8 +11,6 @@ A C-based tool for covert data transmission over ICMP packet sizes without using
 
 # Client
 
-![Demo](assets/demo.gif)
-
 #### Download
 ```
 git clone https://github.com/Staatsrat/icmp_c2.git
@@ -37,6 +35,8 @@ sudo ./icmp
 #### 3. Send
 
 As soon as the program starts you will get a `Enter the server ip:` Here you have to enter the server IP where the server.sh pogram is running. After that you get `user@<server_ip>:~$` enter the commands. (The user and the ~ are static till now.) The output of every command is printed back to you directly under the prompt.
+
+![Demo](assets/demo.gif)
 
 # Server
 
