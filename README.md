@@ -96,10 +96,6 @@ We see the lengths: 72 = H, 111 = o, 116 = t, 100 = d, 111 = o, 103 = g.
 
 This is how you can decode these messages.
 
-Now it also works that the IP is not hardcoded anymore in the code.
-You can now enter it manualy at the start.
-Please follow that ruel ip = 192.169.165.6 for example no other input is valid.
-
 ## 
 If you are running RaspberryPi os you will have to install `sudo apt update && sudo apt install gawk` for the server.sh pogramm.
 
