@@ -36,7 +36,6 @@ int sendit(int letter, char *server_ip) {
     sendto(sock, packet, target_size, 0, (struct sockaddr *)&dest, sizeof(dest));
 
     close(sock);
-    printf("Send!\n");
     return 0;
 
 }
@@ -81,7 +80,7 @@ void message(char *server_ip) {
     	char end[] = "*";
     	printf("user@%s:~$ ", server_ip);
     	if (fgets(wort, sizeof(wort), stdin) != NULL) {
-       		wort[strcspn(wort, "\n")] = '\0';
+       		wort[strcspn(wort, "")] = '\0';
         	size_t free = sizeof(wort) - strlen(wort) - 1;
         	strncat(wort, end, free);
         	for (int i = 0; wort[i] != '\0'; i++) {
