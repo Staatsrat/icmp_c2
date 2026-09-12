@@ -104,8 +104,6 @@ Please follow that ruel ip = 192.169.165.6 for example no other input is valid.
 If you are running RaspberryPi os you will have to install `sudo apt update && sudo apt install gawk` for the server.sh pogramm.
 
 ## Things that don't work
-no encryption. Also there is no way to know what the output of your command was. It should be more of a shell.
-
-I will write that the user gets a response from the server.
+no encryption.
 
 Later I will make a YouTube video on this too.
