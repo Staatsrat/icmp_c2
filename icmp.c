@@ -55,8 +55,8 @@ void message(char *server_ip) {
 	message(server_ip);
 }
 void banner(void) {
-    const char *G = "\033[32m";  // grün
-    const char *X = "\033[0m";   // reset
+    const char *G = "\033[32m";
+    const char *X = "\033[0m";
 
     printf("\n");
     printf("%s", G);
